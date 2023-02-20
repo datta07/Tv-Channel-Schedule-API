@@ -1,0 +1,33 @@
+- Heroku App for All Channel Schedule:-
+	(Integrate with github)
+	- Create a Github public repo on name "all tv channel schedule"
+	- Create a Heroku app for its deployment "Garudadev
+
+
+- python file deals with routing (main.py)
+	- /TodaySchedule?chnl=maatv
+	- /getCategories
+	- /searchChannel?lang=Telugu&cate=Movies
+
+- json file for categories (sch/categories.json)
+
+- json file for All Channel list (sch/channel.json)
+
+- python file to update the other json files (sch/update.py)
+
+- python file for all routing functions (sch/main_fun.py)
+
+Folder Structure:-
+	- Garudadev
+		-sch
+			-categories.json
+			-channel.json
+			-Details.txt
+			-updater.py
+		-main.py
+e
+"previous schedules will be soon"
+
+
+
+

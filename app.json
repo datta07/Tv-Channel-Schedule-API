@@ -1,0 +1,13 @@
+{
+  "name": "Channel-Schedule-Api",
+  "description": "Api for getting indian Channels dialy schedule",
+  "keywords": [
+    "flask",
+    "python",
+    "Channels",
+    "schedule",
+    "Channel-Schedule"
+  ],
+  "success_url": "https://github.com/datta07/tv-channel-schedule-api",
+  "repository": "https://github.com/datta07/tv-channel-schedule-api"
+}
