@@ -19,7 +19,7 @@ class ThreadWithReturnValue(Thread):
 	def terminate(self):
 		self._stop_event.set()
 
-path='.'
+path='sch'
 headers={"appkey":"l7xx938b6684ee9e4bbe8831a9a682b8e19f","usergroup":"tvYR7NSNn7rymo3F","User-Agent":"Dalvik/2.1.0 (Linux; U; Android 10.0.0; Redmi 4A Build/OMC28.71-56)"}
 
 def getCategories():
