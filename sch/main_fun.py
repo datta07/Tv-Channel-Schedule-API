@@ -19,7 +19,7 @@ class ThreadWithReturnValue(Thread):
 	def terminate(self):
 		self._stop_event.set()
 
-path='sch'
+path='.'
 headers={"appkey":"l7xx938b6684ee9e4bbe8831a9a682b8e19f","usergroup":"tvYR7NSNn7rymo3F","User-Agent":"Dalvik/2.1.0 (Linux; U; Android 10.0.0; Redmi 4A Build/OMC28.71-56)"}
 
 def getCategories():
@@ -67,7 +67,7 @@ def TodaySchedule(channel=False,offset=0):
 		channel=data[channel]['id']
 	except Exception:
 		return "invalid categories search /searchChannel"
-	res=requests.get("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers)
+	res=requests.get("https://shdbdcdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers)
 	print("output is",res.status_code,res.text)
 	res=res.json()
 	data_json={}
@@ -77,7 +77,7 @@ def TodaySchedule(channel=False,offset=0):
 
 def GetChannelMovie(i,offset=0):
 	k={}
-	res=requests.get("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(i)+"&langId=6",headers=headers).json()
+	res=requests.get("https://shdbdcdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(i)+"&langId=6",headers=headers).json()
 	for i in res['epg']:
 		if (i["showCategory"]=="Film"):
 			k[i["showtime"]+'   :- '+res["channel_name"]]=i["showname"]+' ('+i["starCast"]+')'
