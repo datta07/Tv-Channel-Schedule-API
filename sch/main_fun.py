@@ -67,7 +67,9 @@ def TodaySchedule(channel=False,offset=0):
 		channel=data[channel]['id']
 	except Exception:
 		return "invalid categories search /searchChannel"
-	res=requests.get("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers).json()
+	res=requests.get("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers)
+	print(res.text)
+	res=res.json()
 	data_json={}
 	for i in res['epg']:
 		data_json[i["showtime"]]={"name":i["showname"],"type":i["showCategory"],"other-details":i["description"]}
