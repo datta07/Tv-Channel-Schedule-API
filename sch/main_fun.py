@@ -67,8 +67,26 @@ def TodaySchedule(channel=False,offset=0):
 		channel=data[channel]['id']
 	except Exception:
 		return "invalid categories search /searchChannel"
-	res=requests.get("https://shdbdcdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers)
-	#print("output is",res.status_code,res.text)
+	res=requests.get("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",
+				  headers= {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,te;q=0.6,hi;q=0.5",
+    "cache-control": "max-age=0",
+    "cookie": "_ga_68JYTCB6GJ=GS1.1.1740234955.1.1.1740235706.0.0.0; _ga=GA1.1.350865693.1740234823; _ga_KTDCM7ZGJS=GS1.1.1740234823.1.1.1740235726.0.0.0",
+    "priority": "u=0, i",
+    "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "none",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+				  })
+	# print("https://jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6")
+	# print("output is",res.status_code,res.text)
 	res=res.json()
 	data_json={}
 	for i in res['epg']:
@@ -77,7 +95,24 @@ def TodaySchedule(channel=False,offset=0):
 
 def GetChannelMovie(i,offset=0):
 	k={}
-	res=requests.get("https://shdbdcdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(i)+"&langId=6",headers=headers).json()
+	res=requests.get("https://jiotv.data.cdn.jio.com/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(i)+"&langId=6",
+				headers= {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,te;q=0.6,hi;q=0.5",
+    "cache-control": "max-age=0",
+    "cookie": "_ga_68JYTCB6GJ=GS1.1.1740234955.1.1.1740235706.0.0.0; _ga=GA1.1.350865693.1740234823; _ga_KTDCM7ZGJS=GS1.1.1740234823.1.1.1740235726.0.0.0",
+    "priority": "u=0, i",
+    "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "none",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+				  } ).json()
 	for i in res['epg']:
 		if (i["showCategory"]=="Film"):
 			k[i["showtime"]+'   :- '+res["channel_name"]]=i["showname"]+' ('+i["starCast"]+')'
@@ -117,4 +152,4 @@ def GetTodaysMovies(lang=False,offset=0):
 	return matter
 
 
-#print(TodaySchedule(channel="Zee Telugu"))
+print(TodaySchedule(channel="Zee Telugu"))
